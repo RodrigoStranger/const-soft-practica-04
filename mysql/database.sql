@@ -17,5 +17,5 @@ CREATE TABLE libros (
     titulo VARCHAR(255) NOT NULL,
     año_publicacion YEAR,
     id_autor INT,
-    FOREIGN KEY (id_autor) REFERENCES autores(id) ON DELETE CASCADE
+    FOREIGN KEY (id_autor) REFERENCES autores(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
