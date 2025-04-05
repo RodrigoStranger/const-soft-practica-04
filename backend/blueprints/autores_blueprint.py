@@ -26,10 +26,10 @@ def update_autor():
 def delete_autor():
     return jsonify(model.delete_autor(int(request.json['id'])))
 
-@autor_blueprint.route('/obtenerautor', methods=['GET'])
+@autor_blueprint.route('/obtenerautor/<int:id>', methods=['GET'])
 @cross_origin()
-def get_autor():
-    return jsonify(model.get_autor(int(request.json['id'])))
+def get_autor(id):
+    return jsonify(model.get_autor(id))
 
 @autor_blueprint.route('/obtenerautores', methods=['GET'])
 @cross_origin()
