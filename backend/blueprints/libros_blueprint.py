@@ -31,10 +31,10 @@ def update_libro():
 def delete_libro():
     return jsonify(model.delete_libro(int(request.json['id'])))
 
-@libro_blueprint.route('/obtenerlibro', methods=['GET'])
+@libro_blueprint.route('/obtenerlibro/<int:id>', methods=['GET'])
 @cross_origin()
 def get_libro():
-    return jsonify(model.get_libro(int(request.json['id'])))
+    return jsonify(model.get_libro(id))
 
 @libro_blueprint.route('/obtenerlibros', methods=['GET'])
 @cross_origin()
