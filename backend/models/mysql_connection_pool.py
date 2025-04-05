@@ -4,7 +4,7 @@ import mysql.connector.pooling
 
 import configparser
 config = configparser.ConfigParser()
-config.read('C:/Users/riexd/Documents/Practica 04/mysql/mysql_config.ini')
+config.read('C:/Users/riexd/Documents/const-soft-practica-04/mysql/mysql_config.ini') # Poner la ruta de su ordenador
 
 dbconfig = {
     "host":config.get('mysql', 'host'),
