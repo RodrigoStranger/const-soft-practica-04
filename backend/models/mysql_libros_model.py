@@ -36,24 +36,13 @@ class LibroModel:
         data['id'] = cursor.lastrowid
         return {'message': f"Libro '{titulo}' creado correctamente.", 'libro': data}
 
-
     def delete_libro(self, libro_id):
         params = {'id': libro_id}
-        libro_exists_query = "SELECT COUNT(*) FROM libros WHERE id = %(id)s"
-        libro_exists = self.mysql_pool.execute(libro_exists_query, params)
-        if libro_exists[0][0] == 0:
-            return {'error': 'El libro con el ID proporcionado no existe en la base de datos.'}
         query = "DELETE FROM libros WHERE id = %(id)s"
         self.mysql_pool.execute(query, params, commit=True)
         return {'result': f'Libro con id {libro_id} eliminado correctamente'}
-
     
     def update_libro(self, libro_id, titulo, año_publicacion, id_autor):
-        params = {'id': libro_id}
-        libro_exists_query = "SELECT COUNT(*) FROM libros WHERE id = %(id)s"
-        libro_exists = self.mysql_pool.execute(libro_exists_query, params)
-        if libro_exists[0][0] == 0:
-            return {'error': 'El libro con el ID proporcionado no existe en la base de datos.'}
         data = {
             'id': libro_id,
             'titulo': titulo,
